@@ -9,6 +9,7 @@ import Rows from 'MyMoviesApp/src/general/Rows';
 import {API_KEY, client} from 'MyMoviesApp/services/config/clients';
 import {GET} from 'MyMoviesApp/services/config/api';
 import EmptyListMessage from 'MyMoviesApp/src/general/EmptyListMessage';
+import Card from 'MyMoviesApp/src/general/Card';
 
 const index = () => {
   const [data, setData] = useState([]);
@@ -19,7 +20,7 @@ const index = () => {
   const [filterType, setFilterType] = useState('upcoming');
 
   const fetchData = (type) => {
-    console.log("offset in fetchdata",offset)
+    console.log('offset in fetchdata', offset);
     if (offset < pages || pages == 0) {
       setLoading(true);
 
@@ -27,20 +28,12 @@ const index = () => {
         .get(`${GET.MOVIE + type}?api_key=${API_KEY}&page=${offset}`)
         .then((res) => {
           if (res.status == 200) {
-
             setPages(res.data.total_pages);
             setSuccess(true);
             setOffset(offset + 1);
             setData([...data, ...res.data.results]);
             setLoading(false);
             setSuccess(true);
-            // setData(res.data.results);
-
-            // setData([...data, ...res.data.results]);
-
-            // setPages(res.data.total_pages);
-
-            // setLoading(false);
           } else {
             setSuccess(false);
           }
@@ -50,32 +43,22 @@ const index = () => {
         });
     }
   };
-  const loadMore = (type) => {
-    fetchData(filterType);
-    setOffset(offset +1);
 
-  };
   useEffect(() => {
-    
     fetchData(filterType);
-   
   }, [filterType]);
   const resetAll = (type) => {
     setData([]);
-
     setFilterType(type);
-
     setOffset(1);
     setPages(0);
-
     setSuccess(true);
-
     setLoading(true);
     fetchData(type);
   };
   return (
     <>
-      {/* <View style={[styles.General.whiteBackground]}> */}
+      <View style={[styles.General.whiteBackground, {flex: 1}]}>
         <Header />
         <View
           style={[
@@ -118,43 +101,31 @@ const index = () => {
             textColor={filterType == 'top_rated' ? Colors.WHITE : Colors.BLACK}
           />
         </View>
-        {/* <View
-          style={[
-            // styles.General.fullScreen,
-            styles.General.largePadding,
-            // styles.General.darkPurpleBackground,
-            styles.General.paddingBottom,
-            styles.General.justifyContentCenter,
-          ]}> */}
-          {success ? (
-            data.length > 0 ? (
-              <Rows
+        {success ? (
+          data.length > 0 ? (
+            <Rows
               usePadding
-                // windowSize={100}
-                contentContainerStyle={[styles.Layout.mediumCardPadding]}
-                keyExtractor={(item, index) => item.id.toString()}
-                numColumns={1}
-                data={data}
-                // onEndReached={() => loadMore(filterType)}
-                // loading={loading}
-                // onEndReachedThreshold={0.5}
-                onEndReached={()=>fetchData(filterType)}
-                loading={loading}
-                onEndReachedThreshold={0.5}
-                renderItem={({item, index}) => (
-                  <MoviesCard item={item} key={item.id} index={index} />
-                )}
-              />
-            ) : (
-              <ActivityIndicator size="large" color={Colors.GRAY} />
-            )
+              windowSize={100}
+              contentContainerStyle={[styles.Layout.mediumCardPadding]}
+              keyExtractor={(item, index) => item.id.toString()}
+              numColumns={1}
+              data={data}
+              onEndReached={() => fetchData(filterType)}
+              loading={loading}
+              onEndReachedThreshold={0.5}
+              renderItem={({item, index}) => (
+                <MoviesCard item={item} key={item.id} index={index} />
+              )}
+            />
           ) : (
-            <EmptyListMessage />
-          )}
-        {/* </View> */}
-      {/* </View> */}
-      {/* <View style={{height:90}}/> */}
-
+            <Card style={[styles.General.fullScreen, styles.Layout.flexCenter]}>
+              <ActivityIndicator size="large" color={Colors.GRAY} />
+            </Card>
+          )
+        ) : (
+          <EmptyListMessage />
+        )}
+      </View>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {Dimensions, FlatList} from 'react-native';
 import LoadingMore from 'MyMoviesApp/src/layout/LoadingMore';
 import styles from 'MyMoviesApp/assets/styles';
 import Col from 'MyMoviesApp/src/general/Col';
@@ -15,7 +15,7 @@ const Rows = ({
   bottomSpace,
   largeBottomSpace,
   renderItem,
-  paddingAmount = 150,
+  paddingAmount = 10,
 
   usePadding = false,
   ...rest
@@ -29,8 +29,8 @@ const Rows = ({
       <Col
         style={[
           bottomSpace && styles.General.paddingBottom,
-          {flex: 1},
-          largeBottomSpace && styles.General.largePaddingBottom,
+          styles.Layout.flex,
+          largeBottomSpace && styles.General.bottomSpace,
         ]}>
         {renderItem(props)}
       </Col>

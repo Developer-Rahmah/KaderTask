@@ -43,12 +43,10 @@ const index = ({route}) => {
 
   return (
     <>
-      <Card clickable={false} style={styles.General.whiteBackground}>
         <Header showBack />
         <ScrollView>
           <MovieDetails item={data} credits={credits} />
         </ScrollView>
-      </Card>
     </>
   );
 };
