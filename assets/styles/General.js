@@ -7,20 +7,6 @@ export default StyleSheet.create({
     height: '100%',
   },
 
-  gutterEnd: {
-    paddingEnd: 4,
-  },
-
-  lightGrayBackground: {
-    backgroundColor: Colors.BEIGE,
-  },
-
-  purpleBackground: {
-    backgroundColor: Colors.PURPLE,
-  },
-  darkPurpleBackground: {
-    backgroundColor: Colors.DARK_PURPLE,
-  },
   whiteBackground: {
     backgroundColor: Colors.WHITE,
   },
@@ -40,25 +26,12 @@ export default StyleSheet.create({
   paddingBottom: {
     paddingBottom: Dimensions.get('window').height / 7.5,
   },
-  paddingTop: {
-    paddingTop: 10,
-  },
+
   shadow: {
     elevation: 1.5,
     shadowColor: Colors.GRAY,
     shadowOffset: {width: 1, height: 2},
     shadowOpacity: 0.5,
     shadowRadius: 3,
-  },
-  justifyContentCenter: {
-    justifyContent: 'center',
-  },
-  alignItemsCenter: {
-    alignItems: 'center',
-  },
-
-  largePadding: {
-    paddingVertical: Dimensions.get('window').width / 27,
-    paddingHorizontal: Dimensions.get('window').width / 37,
   },
 });

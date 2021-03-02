@@ -8,7 +8,8 @@ const OvalShape = ({
   label,
   clickable = false,
   textColor = Colors.BLACK,
-  backgroundColor = Colors.GRAY,bold=true,
+  backgroundColor = Colors.GRAY,
+  bold = true,
   style,
   ...rest
 }) => {
@@ -20,10 +21,12 @@ const OvalShape = ({
         styles.Layout.borderRadius,
         styles.General.smallVerticalPadding,
         styles.General.mediumHorizontalPadding,
-        styles.General.shadow,styles.Layout.flexCenter,
-        {backgroundColor:backgroundColor}
-      ]}  {...rest}>
-      <Title title={label} color={textColor} bold={bold}/>
+        styles.General.shadow,
+        styles.Layout.flexCenter,
+        {backgroundColor: backgroundColor},
+      ]}
+      {...rest}>
+      <Title title={label} color={textColor} bold={bold} />
     </Component>
   );
 };

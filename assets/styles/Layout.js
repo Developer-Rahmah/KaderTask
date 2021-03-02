@@ -1,5 +1,4 @@
 import {StyleSheet, Dimensions} from 'react-native';
-import Colors from './Colors';
 
 export default StyleSheet.create({
   card: {
@@ -20,9 +19,6 @@ export default StyleSheet.create({
   },
   fullWidth: {
     width: '100%',
-  },
-  widthHalf: {
-    width: '50%',
   },
 
   cardPadding: {
@@ -59,35 +55,17 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
 
-  logo: {
-    width: 180,
-    resizeMode: 'contain',
-    height: 80,
-  },
-
   flexDirectionRow: {
     flexDirection: 'row',
   },
 
-  alignItemsFlexEnd: {
-    alignItems: 'flex-end',
-  },
   spaceBetween: {
     justifyContent: 'space-between',
   },
   alignItemsFlexStart: {
     alignItems: 'flex-start',
   },
-  statusBarHight: {
-    height: Dimensions.get('window').height / 40,
-  },
 
-  headerIcon: {
-    width: '10%',
-  },
-  displayNone: {
-    display: 'none',
-  },
   displayFlex: {
     display: 'flex',
   },

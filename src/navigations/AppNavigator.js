@@ -15,11 +15,7 @@ const AppNavigator = () => {
         name="MoviesListingScreen"
         component={MoviesListingScreen}
       />
-        <Stack.Screen
-        name="MovieDetails"
-        component={MovieDetails}
-      />
-      
+      <Stack.Screen name="MovieDetails" component={MovieDetails} />
     </Stack.Navigator>
   );
 };

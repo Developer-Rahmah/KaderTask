@@ -20,7 +20,6 @@ const index = () => {
   const [filterType, setFilterType] = useState('upcoming');
 
   const fetchData = (type) => {
-    console.log('offset in fetchdata', offset);
     if (offset < pages || pages == 0) {
       setLoading(true);
 
@@ -29,7 +28,6 @@ const index = () => {
         .then((res) => {
           if (res.status == 200) {
             setPages(res.data.total_pages);
-            setSuccess(true);
             setOffset(offset + 1);
             setData([...data, ...res.data.results]);
             setLoading(false);

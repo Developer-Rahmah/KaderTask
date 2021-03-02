@@ -50,7 +50,7 @@ const MoviesCard = ({item}) => {
             <Title title={item.title} bold />
             <Title
               title={
-                monthNames[new Date(item.release_date).getMonth()] +
+                monthNames[new Date(item.release_date).getMonth()] + //convert month number to string
                 ' ' +
                 new Date(item.release_date).getDate() +
                 ', ' +
@@ -60,14 +60,14 @@ const MoviesCard = ({item}) => {
             />
             <Rows
               numColumns={2}
-              keyExtractor={(item, index) => index}
+              keyExtractor={(index) => index.toString()}
               data={genres}
-              renderItem={({item, index}) => <Genre item={item} />}
+              renderItem={({item}) => <Genre item={item} />}
             />
           </View>
           <View style={styles.Layout.flexEnd}>
             <Title
-              title={Math.round(item.vote_average * 100) / 10 + '%'}
+              title={Math.round(item.vote_average * 100) / 10 + '%'} //convert vote range  to percentage
               color={Colors.GREEN}
             />
           </View>

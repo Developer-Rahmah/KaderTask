@@ -6,7 +6,7 @@ import {Image} from 'react-native';
 const DetailsImage = ({source, uri}) => {
   return (
     <Image
-    borderRadius={7}
+      borderRadius={7}
       source={source ? source : {uri: htmlDecode(uri)}}
       style={Styles.ImageStyles.posterImage}
     />

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
 import Styles from 'MyMoviesApp/assets/styles';
-import {tahomaFont, tahomaFontBold} from 'MyMoviesApp/assets/styles/Fonts';
 
 const Title = ({
   title,

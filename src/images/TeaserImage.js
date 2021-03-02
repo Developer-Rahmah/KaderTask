@@ -6,8 +6,8 @@ import {htmlDecode} from 'MyMoviesApp/services/helper';
 const TeaserImage = ({uri}) => {
   return (
     <Image
-    borderRadius={5}
-      source={{uri: htmlDecode(uri)} }
+      borderRadius={5}
+      source={{uri: htmlDecode(uri)}}
       style={[Styles.ImageStyles.smallTeaserImage]}
     />
   );

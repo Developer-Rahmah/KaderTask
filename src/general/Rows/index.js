@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import LoadingMore from 'MyMoviesApp/src/layout/LoadingMore';
 import styles from 'MyMoviesApp/assets/styles';
 import Col from 'MyMoviesApp/src/general/Col';
@@ -16,7 +16,6 @@ const Rows = ({
   largeBottomSpace,
   renderItem,
   paddingAmount = 10,
-
   usePadding = false,
   ...rest
 }) => (
